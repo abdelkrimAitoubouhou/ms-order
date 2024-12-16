@@ -1,13 +1,11 @@
 package com.example.ms_order.entities;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.math.BigDecimal;
 
-@Data
+@Getter @Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
@@ -18,7 +16,7 @@ public class Product {
     private Long id;
     private String model;
     private BigDecimal qte;
-    private Boolean price;
+    private Double price;
     private String status;
 
     @ManyToOne

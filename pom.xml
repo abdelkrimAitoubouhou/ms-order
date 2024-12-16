@@ -5,7 +5,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.3.6</version>
+        <version>3.0.0</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.example</groupId>
@@ -62,7 +62,7 @@
         <dependency>
             <groupId>org.mapstruct</groupId>
             <artifactId>mapstruct</artifactId>
-            <version>1.4.2.Final</version>
+            <version>1.5.5.Final</version>
         </dependency>
         <dependency>
             <groupId>org.mapstruct</groupId>
@@ -81,14 +81,6 @@
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter</artifactId>
             <version>5.10.0</version>
-            <scope>test</scope>
-        </dependency>
-
-        <!-- Mockito Core -->
-        <dependency>
-            <groupId>org.mockito</groupId>
-            <artifactId>mockito-core</artifactId>
-            <version>5.5.0</version>
             <scope>test</scope>
         </dependency>
 
@@ -141,11 +133,12 @@
                         <path>
                             <groupId>org.projectlombok</groupId>
                             <artifactId>lombok</artifactId>
+                            <version>1.18.36</version>
                         </path>
                         <path>
                             <groupId>org.mapstruct</groupId>
                             <artifactId>mapstruct-processor</artifactId>
-                            <version>1.4.2.Final</version>
+                            <version>1.5.5.Final</version>
                         </path>
                     </annotationProcessorPaths>
                 </configuration>

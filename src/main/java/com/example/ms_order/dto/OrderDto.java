@@ -1,6 +1,7 @@
 package com.example.ms_order.dto;
 
-import com.example.ms_order.entities.Product;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotEmpty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -13,9 +14,19 @@ import java.util.List;
 public class OrderDto {
 
     private Long id;
-    private Long ref;
-    private String name;
+
+    @NotEmpty
+    private String firstName;
+
+    @NotEmpty
+    private String lastName;
+
+    @NotEmpty
     private String address;
+
+    @Email
     private String mail;
-    private List<Product> products;
+
+    @NotEmpty
+    private List<ProductDto> products;
 }
