@@ -11,7 +11,7 @@ import java.math.BigDecimal;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class ProductDto {
+public class ProductDtoRs {
 
     @NotNull
     private Long id;
@@ -27,8 +27,5 @@ public class ProductDto {
 
     @NotEmpty
     private String status = "available";
-
-    @NotNull
-    private Long orderId;
 
 }

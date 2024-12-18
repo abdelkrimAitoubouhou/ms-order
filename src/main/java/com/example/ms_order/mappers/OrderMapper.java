@@ -8,11 +8,6 @@ import org.mapstruct.*;
 public interface OrderMapper {
     Order toEntity(OrderDto orderDto);
 
-    @AfterMapping
-    default void linkProducts(@MappingTarget Order order) {
-        order.getProducts().forEach(product -> product.setOrder(order));
-    }
-
     OrderDto toDto(Order order);
 
     @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
