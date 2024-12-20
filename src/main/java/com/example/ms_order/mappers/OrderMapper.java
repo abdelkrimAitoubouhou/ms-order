@@ -4,7 +4,7 @@ import com.example.ms_order.dto.OrderDto;
 import com.example.ms_order.entities.Order;
 import org.mapstruct.*;
 
-@Mapper(unmappedTargetPolicy = ReportingPolicy.IGNORE, componentModel = "spring")
+@Mapper(unmappedTargetPolicy = ReportingPolicy.IGNORE, componentModel = "spring", uses = ProductMapper.class)
 public interface OrderMapper {
     Order toEntity(OrderDto orderDto);
 

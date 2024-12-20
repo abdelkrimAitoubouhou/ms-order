@@ -6,26 +6,23 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.math.BigDecimal;
-
 @Data
-@AllArgsConstructor
-@NoArgsConstructor
+@AllArgsConstructor @NoArgsConstructor
 public class ProductDtoRs {
 
-    @NotNull
     private Long id;
-
-    @NotEmpty
+    @NotEmpty(message = "Model should not be null!")
     private String model;
 
-    @NotNull
-    private BigDecimal qte;
-
-    @NotNull
+    @NotNull(message = "Price should not be null!")
     private Double price;
 
-    @NotEmpty
-    private String status = "available";
+    @NotNull(message = "Quantity should not be null!")
+    private Integer qte;
+
+    @NotEmpty(message = "Status should not be null!")
+    private String status;
+    private Long orderId;
+
 
 }

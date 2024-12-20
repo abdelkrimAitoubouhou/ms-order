@@ -25,4 +25,7 @@ public class Order {
     private String clientLastName;
     private String address;
 
+    private Long productId;
+    private Integer productQte;
+
 }
