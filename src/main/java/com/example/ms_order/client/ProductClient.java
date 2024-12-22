@@ -9,20 +9,20 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
-@FeignClient(name = "product-service", url = "${application.config.products-url}")
+@FeignClient(name = "ms-inventory") //we don't need to define the url of this ms cuz eureka will discover it
 public interface ProductClient {
 
-    @GetMapping("/order/{order_id}")
+    @GetMapping("/product/order/{order_id}") //it's necessary to define the Controller mapping in every endpoint
     List<ProductDto> getAllProductByOrderId(@PathVariable("order_id") Long orderId);
 
-    @GetMapping("/check-product/{product_id}/{product_qte}")
+    @GetMapping("/product/check-product/{product_id}/{product_qte}")
     boolean checkProduct(@PathVariable("product_id") Long id,
                          @PathVariable("product_qte") Integer qte);
 
-    @GetMapping("/get")
+    @GetMapping("/product/get")
     ProductDtoRs getProduct(@RequestParam Long id);
 
-    @GetMapping("/availability/{product_id}")
+    @GetMapping("/product/availability/{product_id}")
     boolean enableOrDisableProduct(@PathVariable("product_id") Long id);
 
 
