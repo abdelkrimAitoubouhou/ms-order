@@ -4,10 +4,9 @@ import com.example.ms_order.dto.ApiResponse;
 import com.example.ms_order.dto.OrderDto;
 import com.example.ms_order.services.OrderService;
 import jakarta.validation.Valid;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.web.bind.annotation.*;
 
 
 @RestController
@@ -25,6 +24,18 @@ public class OrderController {
     @PostMapping("/create")
     ApiResponse createOrder(@RequestBody @Valid OrderDto orderDto) {
         return orderService.createOrder(orderDto);
+    }
+
+    @GetMapping("/hey")
+    @PreAuthorize("hasRole('client_admin')")
+    public ResponseEntity<String> sayHelloToAdmin() {
+        return ResponseEntity.ok("Hey Admin");
+    }
+
+    @GetMapping("/hello")
+    @PreAuthorize("hasRole('client_user')")
+    public ResponseEntity<String> sayHelloToUser() {
+        return ResponseEntity.ok("Hello User");
     }
 
 
