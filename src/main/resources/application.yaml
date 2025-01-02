@@ -78,11 +78,11 @@ resilience4j:
     instances:
       inventoryServiceCB:
         registerHealthIndicator: true
-        slidingWindowSize: 5           #  Définit le nombre de requêtes prises en compte pour calculer le taux d'échec.
-        failureRateThreshold: 50        # Pourcentage de requêtes échouées pour ouvrir le circuit
-        waitDurationInOpenState: 5s     # Temps avant de retester un appel après ouverture du circuit (halfOpen)
+        slidingWindowSize: 5           #  DÃ©finit le nombre de requÃªtes prises en compte pour calculer le taux d'Ã©chec.
+        failureRateThreshold: 50        # Pourcentage de requÃªtes Ã©chouÃ©es pour ouvrir le circuit
+        waitDurationInOpenState: 5s     # Temps avant de retester un appel aprÃ¨s ouverture du circuit (halfOpen)
         permittedNumberOfCallsInHalfOpenState: 3 # Nombre d'appels permis en mode semi-ouvert
-        minimumNumberOfCalls: 5         # Nombre minimal de requêtes avant d'évaluer l'état du circuit
+        minimumNumberOfCalls: 5         # Nombre minimal de requÃªtes avant d'Ã©valuer l'Ã©tat du circuit
 
 # Actuator Configuration
 management:
