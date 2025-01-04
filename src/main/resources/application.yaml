@@ -25,19 +25,6 @@ spring:
         dialect: org.hibernate.dialect.PostgreSQLDialect
 
 
-# JWT Configuration
-jwt:
-  auth:
-    converter:
-      resource-id: tst-client
-      principal-attribute: preferred_username
-
-
-# Logging Configuration
-logging:
-  level:
-    org.springframework.security: DEBUG
-
   # Eureka Configuration
   eureka:
     instance:

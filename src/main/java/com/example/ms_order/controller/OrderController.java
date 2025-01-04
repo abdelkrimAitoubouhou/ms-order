@@ -22,18 +22,19 @@ public class OrderController {
 
 
     @PostMapping("/create")
+    @PreAuthorize("hasAuthority('user')")
     ApiResponse createOrder(@RequestBody @Valid OrderDto orderDto) {
         return orderService.createOrder(orderDto);
     }
 
     @GetMapping("/hey")
-    @PreAuthorize("hasRole('client_admin')")
+    @PreAuthorize("hasAuthority('admin')")
     public ResponseEntity<String> sayHelloToAdmin() {
         return ResponseEntity.ok("Hey Admin");
     }
 
     @GetMapping("/hello")
-    @PreAuthorize("hasRole('client_user')")
+    @PreAuthorize("hasAuthority('admin')")
     public ResponseEntity<String> sayHelloToUser() {
         return ResponseEntity.ok("Hello User");
     }
