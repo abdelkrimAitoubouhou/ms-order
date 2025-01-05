@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import java.util.Collections;
 import java.util.List;
 
+
 @FeignClient(name = "ms-inventory") //we don't need to define the url of this ms cuz eureka will discover it
 public interface ProductClient {
 

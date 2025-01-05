@@ -147,6 +147,12 @@
             <version>2.2.0</version>
         </dependency>
 
+        <dependency>
+            <groupId>org.keycloak</groupId>
+            <artifactId>keycloak-admin-client</artifactId>
+            <version>22.0.5</version> <!-- Use the latest version of Keycloak -->
+        </dependency>
+
         <!-- spring-cloud-config-client -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>

@@ -41,6 +41,7 @@ public class OrderServiceImpl implements OrderService {
         //check if the product available
         boolean productCheckResult = client.checkProduct(order.getProductId(), order.getProductQte());
 
+        //TODO: check
         if (!productCheckResult) {
             return ApiResponse.builder()
                     .message("Order failed")
