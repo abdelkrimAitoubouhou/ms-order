@@ -1,0 +1,90 @@
+spring:
+  application:
+    name: ms-order
+  config:
+    import: optional:configserver:http://localhost:8888
+  security: # Security Configuration
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:8084/realms/test-spring-client
+          jwk-set-uri: ${spring.security.oauth2.resourceserver.jwt.issuer-uri}/protocol/openid-connect/certs
+
+  # PostgresSQL Configuration
+  datasource:
+    url: jdbc:postgresql://localhost:5433/order-db
+    username: user
+    password: user
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+
+
+  # Eureka Configuration
+  eureka:
+    instance:
+      hostname: localhost
+    client:
+      service-url:
+        defaultZone: http://localhost:8761/eureka
+
+  # Server Configuration
+  server:
+    port: 8080
+
+# Swagger Configuration (Optional)
+api:
+  common:
+    version: Local
+    title: order service
+    description: order service Documentation
+    termsOfService: MY TERMS OF SERVICE
+    license: license
+    licenseUrl: https://inwi.ma/LICENSE-0.0.1.html
+    externalDocDesc: MY WIKI PAGE
+    externalDocUrl: MY WIKI URL
+    contact:
+      name: NAME OF CONTACT
+      url: URL TO CONTACT
+      email: contact@mail.com
+
+springdoc:
+  api-docs:
+    path: /api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+
+# Resilience4j (circuit breaker) Configuration
+resilience4j:
+  circuitbreaker:
+    instances:
+      inventoryServiceCB:
+        registerHealthIndicator: true
+        slidingWindowSize: 5           #  Définit le nombre de requêtes prises en compte pour calculer le taux d'échec.
+        failureRateThreshold: 50        # Pourcentage de requêtes échouées pour ouvrir le circuit
+        waitDurationInOpenState: 5s     # Temps avant de retester un appel après ouverture du circuit (halfOpen)
+        permittedNumberOfCallsInHalfOpenState: 3 # Nombre d'appels permis en mode semi-ouvert
+        minimumNumberOfCalls: 5         # Nombre minimal de requêtes avant d'évaluer l'état du circuit
+
+# Actuator Configuration
+management:
+  health:
+    circuitbreakers:
+      enabled: true
+  endpoint:
+    health:
+      show-details: always
+  endpoints:
+    web:
+      exposure:
+        include: health, info
+
+application:
+  config:
+    products-url: http://localhost:8082/product
+

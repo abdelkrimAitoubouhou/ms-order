@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="fr"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>OrderMapperImpl.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">ms_order</a> &gt; <a href="index.source.html" class="el_package">com.example.ms_order.mappers</a> &gt; <span class="el_source">OrderMapperImpl.java</span></div><h1>OrderMapperImpl.java</h1><pre class="source lang-java linenums">package com.example.ms_order.mappers;
+
+import com.example.ms_order.dto.OrderDto;
+import com.example.ms_order.entities.Order;
+import javax.annotation.processing.Generated;
+import org.springframework.stereotype.Component;
+
+@Generated(
+    value = &quot;org.mapstruct.ap.MappingProcessor&quot;,
+    date = &quot;2025-01-02T14:57:57+0100&quot;,
+    comments = &quot;version: 1.5.5.Final, compiler: javac, environment: Java 17 (Oracle Corporation)&quot;
+)
+@Component
+<span class="fc" id="L14">public class OrderMapperImpl implements OrderMapper {</span>
+
+    @Override
+    public Order toEntity(OrderDto orderDto) {
+<span class="nc bnc" id="L18" title="All 2 branches missed.">        if ( orderDto == null ) {</span>
+<span class="nc" id="L19">            return null;</span>
+        }
+
+<span class="nc" id="L22">        Order order = new Order();</span>
+
+<span class="nc" id="L24">        order.setRef( orderDto.getRef() );</span>
+<span class="nc" id="L25">        order.setDate( orderDto.getDate() );</span>
+<span class="nc" id="L26">        order.setClientFirstName( orderDto.getClientFirstName() );</span>
+<span class="nc" id="L27">        order.setClientLastName( orderDto.getClientLastName() );</span>
+<span class="nc" id="L28">        order.setAddress( orderDto.getAddress() );</span>
+<span class="nc" id="L29">        order.setProductId( orderDto.getProductId() );</span>
+<span class="nc" id="L30">        order.setProductQte( orderDto.getProductQte() );</span>
+
+<span class="nc" id="L32">        return order;</span>
+    }
+
+    @Override
+    public OrderDto toDto(Order order) {
+<span class="nc bnc" id="L37" title="All 2 branches missed.">        if ( order == null ) {</span>
+<span class="nc" id="L38">            return null;</span>
+        }
+
+<span class="nc" id="L41">        OrderDto.OrderDtoBuilder orderDto = OrderDto.builder();</span>
+
+<span class="nc" id="L43">        orderDto.ref( order.getRef() );</span>
+<span class="nc" id="L44">        orderDto.date( order.getDate() );</span>
+<span class="nc" id="L45">        orderDto.clientFirstName( order.getClientFirstName() );</span>
+<span class="nc" id="L46">        orderDto.clientLastName( order.getClientLastName() );</span>
+<span class="nc" id="L47">        orderDto.address( order.getAddress() );</span>
+<span class="nc" id="L48">        orderDto.productId( order.getProductId() );</span>
+<span class="nc" id="L49">        orderDto.productQte( order.getProductQte() );</span>
+
+<span class="nc" id="L51">        return orderDto.build();</span>
+    }
+
+    @Override
+    public Order partialUpdate(OrderDto orderDto, Order order) {
+<span class="nc bnc" id="L56" title="All 2 branches missed.">        if ( orderDto == null ) {</span>
+<span class="nc" id="L57">            return order;</span>
+        }
+
+<span class="nc bnc" id="L60" title="All 2 branches missed.">        if ( orderDto.getRef() != null ) {</span>
+<span class="nc" id="L61">            order.setRef( orderDto.getRef() );</span>
+        }
+<span class="nc bnc" id="L63" title="All 2 branches missed.">        if ( orderDto.getDate() != null ) {</span>
+<span class="nc" id="L64">            order.setDate( orderDto.getDate() );</span>
+        }
+<span class="nc bnc" id="L66" title="All 2 branches missed.">        if ( orderDto.getClientFirstName() != null ) {</span>
+<span class="nc" id="L67">            order.setClientFirstName( orderDto.getClientFirstName() );</span>
+        }
+<span class="nc bnc" id="L69" title="All 2 branches missed.">        if ( orderDto.getClientLastName() != null ) {</span>
+<span class="nc" id="L70">            order.setClientLastName( orderDto.getClientLastName() );</span>
+        }
+<span class="nc bnc" id="L72" title="All 2 branches missed.">        if ( orderDto.getAddress() != null ) {</span>
+<span class="nc" id="L73">            order.setAddress( orderDto.getAddress() );</span>
+        }
+<span class="nc bnc" id="L75" title="All 2 branches missed.">        if ( orderDto.getProductId() != null ) {</span>
+<span class="nc" id="L76">            order.setProductId( orderDto.getProductId() );</span>
+        }
+<span class="nc bnc" id="L78" title="All 2 branches missed.">        if ( orderDto.getProductQte() != null ) {</span>
+<span class="nc" id="L79">            order.setProductQte( orderDto.getProductQte() );</span>
+        }
+
+<span class="nc" id="L82">        return order;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.10.202304240956</span></div></body></html>
